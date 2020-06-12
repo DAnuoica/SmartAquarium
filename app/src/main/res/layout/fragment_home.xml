@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_led"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/led_on"></ImageView>
+
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="150 lux"
+                android:id="@+id/tvlight"
+                android:textSize="30sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="2"
+                android:src="@drawable/temperature"></ImageView>
+
+            <TextView
+                android:id="@+id/txt_nhiet"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="20°C"
+                android:textSize="30sp"></TextView>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
+                android:src="@drawable/food"></ImageView>
+
+            <TextView
+                android:id="@+id/txt_thucan"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Full"
+                android:textSize="30sp"></TextView>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/List"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvmore"
+            android:text=">> xem chi tiet"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#3F51B5"
+            android:autoLink="none"
+            android:textSize="20sp">
+        </TextView>
+        <com.github.mikephil.charting.charts.BarChart
+            android:layout_margin="10dp"
+            android:id="@+id/bar_chart"
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+        </com.github.mikephil.charting.charts.BarChart>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "321562127283",
+    "firebase_url": "https://smartaqua-beb30.firebaseio.com",
+    "project_id": "smartaqua-beb30",
+    "storage_bucket": "smartaqua-beb30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321562127283:android:9d43961a3d7ce1e49339c6",
+        "android_client_info": {
+          "package_name": "com.example.smart_aqua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321562127283-lfi5lqma4deq20df8uhd6p2nb81s2jg2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smart_aqua",
+            "certificate_hash": "244730303bc4498bebaf5447b8645277a94ff0d1"
+          }
+        },
+        {
+          "client_id": "321562127283-bgj38b23jll3qkfefgu3m5hl84gv0643.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5rN2Qf_--RijryCBp26amcsbhHO7bIFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321562127283-bgj38b23jll3qkfefgu3m5hl84gv0643.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

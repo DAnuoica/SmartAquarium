@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_margin="2dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_generic"
+    android:gravity="center"
+    android:weightSum="2">
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="2">
+        <ImageView
+            android:layout_weight="2"
+            android:layout_width="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="70dp"
+            android:id="@+id/img"
+            android:src="@drawable/led_on">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019"
+            android:textSize="18sp"
+            android:id="@+id/txtTg">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="4">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="30sp"
+            android:id="@+id/txtNhiet">
+        </TextView>
+
+        <TextView
+            android:id="@+id/txtAs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="19 lux"
+            android:textSize="18sp">
+        </TextView>
+
+    </LinearLayout>
+</LinearLayout>
