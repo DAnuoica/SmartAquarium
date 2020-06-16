@@ -45,15 +45,4 @@
         android:layout_marginTop="30dp"
         android:textColor="@android:color/white"
         android:background="@drawable/btn_generic" />
-
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp"
-        android:background="@drawable/btn_generic"
-        android:text="Signup"
-        android:textColor="@android:color/white" />
 </RelativeLayout>

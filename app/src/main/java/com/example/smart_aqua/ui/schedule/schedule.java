@@ -79,30 +79,36 @@ public class schedule extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog timePickerDialog= new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        calendar.set(Calendar.MINUTE,minute);
-                        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                        SimpleDateFormat format= new SimpleDateFormat("hh:mm");
-                        tvH.setText(format.format(calendar.getTime()));
-                    }
-                },gio,phut,true);
-                timePickerDialog.show();
-                DatePickerDialog datePickerDialog= new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar.set(Calendar.DATE, dayOfMonth);
-                        calendar.set(Calendar.MONTH, month);
-                        calendar.set(Calendar.YEAR, year);
-                        SimpleDateFormat format= new SimpleDateFormat("dd-MM-YYYY");
-                        tvD.setText(format.format(calendar.getTime()));
-                    }
-                },nam,thang,ngay);
-                datePickerDialog.show();
+                setHour(tvH);
+                setDay(tvD);
             }
         });
 
+    }
+    public void setHour(final TextView tvH){
+        TimePickerDialog timePickerDialog= new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(Calendar.MINUTE,minute);
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                SimpleDateFormat format= new SimpleDateFormat("hh:mm");
+                tvH.setText(format.format(calendar.getTime()));
+            }
+        },gio,phut,true);
+        timePickerDialog.show();
+    }
+    public void setDay(final TextView tvD){
+        DatePickerDialog datePickerDialog= new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.DATE, dayOfMonth);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.YEAR, year);
+                SimpleDateFormat format= new SimpleDateFormat("dd-MM-YYYY");
+                tvD.setText(format.format(calendar.getTime()));
+            }
+        },nam,thang,ngay);
+        datePickerDialog.show();
     }
     public void setSchedule(){
         Clickbutton(txtdLedbd,txthLedbd,btnLedbd);

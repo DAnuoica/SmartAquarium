@@ -2,9 +2,17 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,9 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
 
         <Button
+            android:background="@drawable/btn_schedule_start"
+            android:layout_margin="10sp"
             android:id="@+id/btnledbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,6 +52,8 @@
         android:orientation="horizontal"
         android:weightSum="3">
         <Button
+            android:background="@drawable/btn_schedule_stop"
+            android:layout_margin="10sp"
             android:id="@+id/btnledkt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,9 +82,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
 
         <Button
+            android:background="@drawable/btn_schedule_start"
+            android:layout_margin="10sp"
             android:id="@+id/btnoxibd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -95,8 +111,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
         <Button
+            android:background="@drawable/btn_schedule_stop"
+            android:layout_margin="10sp"
             android:id="@+id/btnoxikt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,9 +144,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
 
         <Button
+            android:background="@drawable/btn_schedule_start"
+            android:layout_margin="10sp"
             android:id="@+id/btnlocbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -151,8 +173,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
         <Button
+            android:background="@drawable/btn_schedule_stop"
+            android:layout_margin="10sp"
             android:id="@+id/btnlockt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -181,9 +206,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
 
         <Button
+            android:background="@drawable/btn_schedule_start"
+            android:layout_margin="10sp"
             android:id="@+id/btnanchon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -215,4 +243,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cancel"></Button>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

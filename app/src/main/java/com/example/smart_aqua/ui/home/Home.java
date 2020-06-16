@@ -1,5 +1,4 @@
 package com.example.smart_aqua.ui.home;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
