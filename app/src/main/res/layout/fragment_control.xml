@@ -31,6 +31,7 @@
                     android:weightSum="5">
 
                     <TextView
+                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
@@ -38,6 +39,7 @@
                         android:text="Nhiệt độ :" />
 
                     <Button
+                        android:textSize="20sp"
                         android:id="@+id/btngiam"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
@@ -67,6 +69,7 @@
                     android:weightSum="5">
 
                     <TextView
+                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
@@ -94,6 +97,7 @@
                     android:weightSum="5">
 
                     <TextView
+                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
@@ -120,6 +124,7 @@
                     android:weightSum="5">
 
                     <TextView
+                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
@@ -145,6 +150,7 @@
                     android:weightSum="5">
 
                     <TextView
+                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"

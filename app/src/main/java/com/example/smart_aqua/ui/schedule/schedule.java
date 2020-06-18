@@ -7,19 +7,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.smart_aqua.R;
+import com.example.smart_aqua.login;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class schedule extends Fragment {
     TextView txtdLedbd,txtdLedkt,
@@ -29,7 +39,8 @@ public class schedule extends Fragment {
             txthAnchon;
     Button btnLedbd,btnLedkt,
             btnOxibd,btnOxikt,btnLocbd,btnLockt,
-            btnAnchon,btnsave,btncancel;
+            btnAnchon;
+    ToggleButton btnsave;
     Calendar calendar= Calendar.getInstance();
     int gio = calendar.get(Calendar.HOUR_OF_DAY);
     int phut = calendar.get(Calendar.MINUTE);
@@ -42,9 +53,9 @@ public class schedule extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         setID(view);
+        check();
         setSchedule();
         clickSave();
-        clickCancel();
         return view;
     }
     public void setID(View view){
@@ -70,7 +81,6 @@ public class schedule extends Fragment {
                 btnOxikt=view.findViewById(R.id.btnoxikt);
                 btnAnchon=view.findViewById(R.id.btnanchon);
                 btnsave=view.findViewById(R.id.btnsave);
-                btncancel=view.findViewById(R.id.btnCancel);
                 btnLocbd=view.findViewById(R.id.btnlocbd);
                 btnLockt=view.findViewById(R.id.btnlockt);
 
@@ -91,8 +101,8 @@ public class schedule extends Fragment {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 calendar.set(Calendar.MINUTE,minute);
                 calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                SimpleDateFormat format= new SimpleDateFormat("hh:mm");
-                tvH.setText(format.format(calendar.getTime()));
+                SimpleDateFormat format= new SimpleDateFormat("kk:mm ");
+                tvH.setText(" "+format.format(calendar.getTime()));
             }
         },gio,phut,true);
         timePickerDialog.show();
@@ -113,40 +123,124 @@ public class schedule extends Fragment {
     public void setSchedule(){
         Clickbutton(txtdLedbd,txthLedbd,btnLedbd);
         Clickbutton(txtdLedkt,txthLedkt,btnLedkt);
+//        xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
 
         Clickbutton(txtdLocbd,txthLocbd,btnLocbd);
         Clickbutton(txtdLockt,txthLockt,btnLockt);
+//        xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
 
         Clickbutton(txtdOxibd,txthOxibd,btnOxibd);
         Clickbutton(txtdOxikt,txthOxikt,btnOxikt);
+//        xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
 
         Clickbutton(txtdAnchon,txthAnchon,btnAnchon);
     }
     public void clickSave(){
-        btnsave.setOnClickListener(new View.OnClickListener() {
+        btnsave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                myRef.child("HoCa").child("Led").child("start").setValue(txtdLedbd.getText()+" "+txthLedbd.getText());
-                myRef.child("HoCa").child("Led").child("stop").setValue(txtdLedkt.getText()+" "+txthLedkt.getText());
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
+                    xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
+                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
+                    myRef.child("HoCa").child("Led").child("start").setValue(""+txtdLedbd.getText()+txthLedbd.getText());
+                    myRef.child("HoCa").child("Led").child("stop").setValue(""+txtdLedkt.getText()+txthLedkt.getText());
 
-                myRef.child("HoCa").child("Oxi").child("start").setValue(txtdOxibd.getText()+" "+txthOxibd.getText());
-                myRef.child("HoCa").child("Oxi").child("stop").setValue(txtdOxikt.getText()+" "+txthOxikt.getText());
+                    myRef.child("HoCa").child("Oxi").child("start").setValue(""+txtdOxibd.getText()+txthOxibd.getText());
+                    myRef.child("HoCa").child("Oxi").child("stop").setValue(""+txtdOxikt.getText()+txthOxikt.getText());
 
-                myRef.child("HoCa").child("Purifier").child("start").setValue(txtdLocbd.getText()+" "+txthLocbd.getText());
-                myRef.child("HoCa").child("Purifier").child("stop").setValue(txtdLockt.getText()+" "+txthLockt.getText());
+                    myRef.child("HoCa").child("Purifier").child("start").setValue(""+txtdLocbd.getText()+txthLocbd.getText());
+                    myRef.child("HoCa").child("Purifier").child("stop").setValue(""+txtdLockt.getText()+txthLockt.getText());
 
-                myRef.child("HoCa").child("Feed").child("start").setValue(txtdAnchon.getText()+" "+txthAnchon.getText());
+                    myRef.child("HoCa").child("Feed").child("start").setValue(""+txtdAnchon.getText()+txthAnchon.getText());
 
-                myRef.child("HoCa").child("schedule").setValue(true);
+                    myRef.child("HoCa").child("schedule").setValue(true, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if(databaseError!=null){
+                                Toast.makeText(getActivity(), "hẹn giờ thất bại " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                            else Toast.makeText(getActivity(), "Đã hẹn giờ thành công ", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+                else {
+                    myRef.child("HoCa").child("Led").child("start").setValue("");
+                    myRef.child("HoCa").child("Led").child("stop").setValue("");
+
+                    myRef.child("HoCa").child("Oxi").child("start").setValue("");
+                    myRef.child("HoCa").child("Oxi").child("stop").setValue("");
+
+                    myRef.child("HoCa").child("Purifier").child("start").setValue("");
+                    myRef.child("HoCa").child("Purifier").child("stop").setValue("");
+
+                    myRef.child("HoCa").child("Feed").child("start").setValue("");
+
+                    myRef.child("HoCa").child("schedule").setValue(false);
+                }
             }
         });
     }
-    public void clickCancel(){
-        btncancel.setOnClickListener(new View.OnClickListener() {
+    public void check(){
+        myRef.child("HoCa").child("schedule").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                myRef.child("HoCa").child("schedule").setValue(false);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                boolean k= (boolean) dataSnapshot.getValue();
+                if(k) btnsave.setChecked(true);
+                else btnsave.setChecked(false);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+        TinhTrang("Feed","start",txtdAnchon,txthAnchon);
+        TinhTrang("Led","start",txtdLedbd,txthLedbd);
+        TinhTrang("Led","stop",txtdLedkt,txthLedkt);
+        TinhTrang("Oxi","start",txtdOxibd,txthOxibd);
+        TinhTrang("Oxi","stop",txtdOxikt,txthOxikt);
+        TinhTrang("Purifier","start",txtdLocbd,txthLocbd);
+        TinhTrang("Purifier","stop",txtdLockt,txthLockt);
+    }
+    public void TinhTrang(String S1, String S2, final TextView tv1, final TextView tv2){
+        myRef.child("HoCa").child(S1).child(S2).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String s = dataSnapshot.getValue().toString();
+                if(s.length()!=0) {
+                    tv1.setText(s.substring(0, 10));
+                    tv2.setText(s.substring(10));
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+    public void xulysaisot(TextView tvd1,TextView tvh1,TextView tvd2,TextView tvh2) {
+        if(tvd1.length()!=0&&tvd2.length()!=0&&tvh1.length()!=0&&tvh2.length()!=0) {
+            String S1 = "" + tvd1.getText() + tvh1.getText();
+            String S2 = "" + tvd2.getText() + tvh2.getText();
+            Calendar ca1 = Calendar.getInstance();
+            Calendar ca2 = Calendar.getInstance();
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+            try {
+                ca1.setTime(format.parse(S1));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            try {
+                ca2.setTime(format.parse(S2));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            int check = ca1.compareTo(ca2);
+            if (check >= 0) {
+                Toast.makeText(getActivity(), "nhập ngày giờ không phù hợp, vui lòng nhâp lại ", Toast.LENGTH_LONG).show();
+                tvd1.setText("");
+                tvd2.setText("");
+                tvh1.setText("");
+                tvh2.setText("");
+            }
+        }
     }
 }

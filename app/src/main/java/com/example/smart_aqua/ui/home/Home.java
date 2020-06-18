@@ -40,12 +40,12 @@ import java.util.Random;
 
 public class Home extends Fragment {
     ImageView led;
-    TextView nhietdo,thucan,Asang,More;
+    TextView nhietdo,thucan,Asang,More,tvDate1,tvDate2,tvMin1,tvMin2,tvMax1,tvMax2;
     RecyclerView recyclerView;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference myRef= database.getReference();
     BarChart barChart;
-
+    final Calendar calendar= Calendar.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class Home extends Fragment {
         SetID(view);
 //        fakedata();
         TinhTrang();
+        forecast();
         initView(recyclerView);
         graph();
         clickMore();
@@ -66,6 +67,12 @@ public class Home extends Fragment {
         recyclerView=view.findViewById(R.id.List);
         barChart=view.findViewById(R.id.bar_chart);
         More=view.findViewById(R.id.tvmore);
+        tvDate1=view.findViewById(R.id.tvdate1);
+        tvDate2=view.findViewById(R.id.tvdate2);
+        tvMin1=view.findViewById(R.id.tvmin1);
+        tvMin2=view.findViewById(R.id.tvmin2);
+        tvMax1=view.findViewById(R.id.tvmax1);
+        tvMax2=view.findViewById(R.id.tvmax2);
     }
     public void TinhTrang(){
         //hien thi led on off
@@ -98,6 +105,7 @@ public class Home extends Fragment {
                 Toast.makeText(getActivity(),"loi ",Toast.LENGTH_SHORT).show();
             }
         });
+        //hien thi cuong do anh sang
         myRef.child("HoCa").child("Light").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -109,6 +117,12 @@ public class Home extends Fragment {
                 Toast.makeText(getActivity(),"loi ",Toast.LENGTH_SHORT).show();
             }
         });
+        // load gia tri ngay mai va mot
+        Calendar calendar2= Calendar.getInstance();
+        calendar2.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH)+1);
+        SimpleDateFormat format= new SimpleDateFormat("dd/MM");
+        tvDate1.setText(format.format(calendar.getTime()));
+        tvDate2.setText(format.format(calendar2.getTime()));
     }
     //load du vao recyclerview
     public void initView(RecyclerView recyclerView) {
@@ -214,5 +228,26 @@ public class Home extends Fragment {
                 logs logs= new logs(led,light,nhiet,time);
                 myRef.child("HoCa").child("logs").push().setValue(logs);
             }
+    }
+    public void forecast(){
+        getvalueforecast("day1","min",tvMin1);
+        getvalueforecast("day1","max",tvMax1);
+        getvalueforecast("day2","min",tvMin2);
+        getvalueforecast("day2","max",tvMax2);
+    }
+    public void getvalueforecast(String S1, String S2, final TextView tv){
+        myRef.child("HoCa").child("forecast").child(S1).child(S2).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int k =Integer.parseInt(dataSnapshot.getValue().toString());
+                if(k>=30) tv.setTextColor(Color.RED);
+                else if(k<30 && k>20) tv.setTextColor(Color.GREEN);
+                else tv.setTextColor(Color.BLUE);
+                tv.setText(k+"°C");
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
 }

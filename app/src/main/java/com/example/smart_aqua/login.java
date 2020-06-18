@@ -20,7 +20,6 @@ public class login extends AppCompatActivity {
     private EditText mEmailField;
     private EditText mPasswordField;
     private Button mLoginBtn;
-    private Button mSignup;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -67,19 +66,17 @@ public class login extends AppCompatActivity {
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
 
-            Toast.makeText(login.this, "Fields are empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(login.this, "nhập thiếu tài khoảng hoặc mật khẩu ", Toast.LENGTH_LONG).show();
         }
         else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()){
-
-                        Toast.makeText(login.this, "Wrong username or password", Toast.LENGTH_LONG).show();
+                        Toast.makeText(login.this, "nhập sai tài khoảng hoặc mật khẩu ", Toast.LENGTH_LONG).show();
                     }
                 }
             });
-
         }
     }
 }

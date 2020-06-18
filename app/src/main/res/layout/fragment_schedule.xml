@@ -14,11 +14,13 @@
             android:orientation="vertical"
             android:layout_margin="10dp">
     <TextView
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đèn Led"
         android:textSize="20sp"></TextView>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -26,47 +28,56 @@
         android:weightSum="3">
 
         <Button
-            android:background="@drawable/btn_schedule_start"
-            android:layout_margin="10sp"
             android:id="@+id/btnledbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_start"
             android:text="start"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
 
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txtdledbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txthledbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
     </LinearLayout>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:weightSum="3">
+
         <Button
-            android:background="@drawable/btn_schedule_stop"
-            android:layout_margin="10sp"
             android:id="@+id/btnledkt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_stop"
             android:text="stop"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
 
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txtdledkt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txthledkt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,11 +85,13 @@
     </LinearLayout>
 
     <TextView
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Máy Oxi"
         android:textSize="20sp"></TextView>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -86,21 +99,24 @@
         android:weightSum="3">
 
         <Button
-            android:background="@drawable/btn_schedule_start"
-            android:layout_margin="10sp"
             android:id="@+id/btnoxibd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_start"
             android:text="start"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtdoxibd">
         </TextView>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -108,27 +124,32 @@
         </TextView>
     </LinearLayout>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:weightSum="3">
+
         <Button
-            android:background="@drawable/btn_schedule_stop"
-            android:layout_margin="10sp"
             android:id="@+id/btnoxikt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_stop"
             android:text="stop"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
 
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txtdoxikt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txthoxikt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -136,11 +157,13 @@
     </LinearLayout>
 
     <TextView
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lọc nước"
         android:textSize="20sp"></TextView>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -148,21 +171,24 @@
         android:weightSum="3">
 
         <Button
-            android:background="@drawable/btn_schedule_start"
-            android:layout_margin="10sp"
             android:id="@+id/btnlocbd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_start"
             android:text="start"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtdlocbd">
         </TextView>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -170,39 +196,46 @@
         </TextView>
     </LinearLayout>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:weightSum="3">
+
         <Button
-            android:background="@drawable/btn_schedule_stop"
-            android:layout_margin="10sp"
             android:id="@+id/btnlockt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_stop"
             android:text="stop"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
 
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txtdlockt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
         <TextView
+            android:textSize="15sp"
             android:id="@+id/txthlockt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"></TextView>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cho an"
-        android:textSize="20sp">
-    </TextView>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cho ăn"
+                android:textSize="20sp"></TextView>
     <LinearLayout
+        android:background="#3600BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -210,39 +243,47 @@
         android:weightSum="3">
 
         <Button
-            android:background="@drawable/btn_schedule_start"
-            android:layout_margin="10sp"
             android:id="@+id/btnanchon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10sp"
             android:layout_weight="1"
+            android:background="@drawable/btn_schedule_start"
             android:text="start"
-            android:textSize="10sp"></Button>
+            android:textColor="#ffffff"
+            android:textSize="14sp"></Button>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtdanchon">
         </TextView>
         <TextView
+            android:textSize="15sp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txthanchon">
         </TextView>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnsave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"></Button>
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cancel"></Button>
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Hẹn giờ ">
+        </TextView>
+            <ToggleButton
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/btnsave"
+                android:layout_width="120dp"
+                android:layout_height="55dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_on_off"
+                android:checked="true"
+                android:textOff=" "
+                android:textOn=" " />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
