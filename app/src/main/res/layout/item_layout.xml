@@ -4,24 +4,26 @@
     android:orientation="horizontal"
     android:layout_margin="1dp"
     android:background="@drawable/list_generic"
-    android:layout_width="150dp"
+    android:layout_width="170dp"
     android:layout_height="wrap_content">
     <ImageView
+        android:layout_margin="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_marginRight="5dp"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:id="@+id/img"
         android:src="@drawable/led_on">
     </ImageView>
     <LinearLayout
+        android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xxxxxxxx"
+            android:text="xxxx"
             android:layout_marginLeft="20dp"
             android:textSize="15sp"
             android:id="@+id/txtTg">
@@ -29,7 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xxxxxxxx"
+            android:text="xxxx"
             android:layout_marginLeft="20dp"
             android:textSize="15sp"
             android:id="@+id/txtAs">
@@ -37,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xxxxxxxx"
+            android:text="xxxx"
             android:layout_marginLeft="20dp"
             android:textSize="15sp"
             android:id="@+id/txtNhiet">

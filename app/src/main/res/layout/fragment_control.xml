@@ -11,17 +11,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/hideShow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="50dp"
-                android:orientation="vertical"
-                android:visibility="visible">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
@@ -31,12 +22,14 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:textSize="20sp"
+                        android:textStyle="bold"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:gravity="left"
-                        android:text="Nhiệt độ :" />
+                        android:text="Nhiệt độ :"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
 
                     <Button
                         android:textSize="20sp"
@@ -51,7 +44,9 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="20" />
+                        android:text="20"
+                        android:textColor="#000000"
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btntang"
@@ -69,12 +64,14 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:gravity="left"
-                        android:text="Đèn Led :" />
+                        android:text="Đèn Led :"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <ToggleButton
                         android:id="@+id/btnLed"
@@ -97,12 +94,14 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:gravity="left"
-                        android:text="Cho ăn :" />
+                        android:text="Cho ăn :"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <ToggleButton
                         android:id="@+id/btnAn"
@@ -124,12 +123,14 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:gravity="left"
-                        android:text="Lọc nước :" />
+                        android:text="Lọc nước :"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <ToggleButton
                         android:id="@+id/btnloc"
@@ -150,13 +151,15 @@
                     android:weightSum="5">
 
                     <TextView
-                        android:textSize="20sp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:baselineAligned="false"
                         android:gravity="left"
-                        android:text="Máy Oxi :" />
+                        android:text="Máy Oxi :"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <ToggleButton
                         android:id="@+id/btno2"
@@ -169,7 +172,6 @@
                         android:textOff=" "
                         android:textOn=" " />
                 </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

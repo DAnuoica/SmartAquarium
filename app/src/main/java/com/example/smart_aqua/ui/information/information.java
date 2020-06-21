@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,44 +27,20 @@ import java.util.ArrayList;
 
 public class information extends Fragment {
     FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference myRef= database.getReference();
-    ListView listView;
-    ArrayList arrayList = new ArrayList();
-    ArrayAdapter adapter;
-
     FirebaseAuth mAuth;
-    Button btnLogOut;
+    TextView tvLogout;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_information, container, false);
-        btnLogOut=view.findViewById(R.id.btnlogout);
+        tvLogout=view.findViewById(R.id.tvlogout);
         mAuth = FirebaseAuth.getInstance();
-
-        listView=view.findViewById(R.id.lv);
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
+        tvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
                 startActivity(new Intent(getActivity(), login.class));
             }
         });
-//        test();
-        adapter =new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1, arrayList);
-        listView.setAdapter(adapter);
         return view;
-    }
-    public void test(){
-        myRef.child("HoCa").child("logs").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                arrayList.add(dataSnapshot.getValue().toString());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getActivity(),"loi ",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

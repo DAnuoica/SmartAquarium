@@ -101,7 +101,7 @@ public class schedule extends Fragment {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 calendar.set(Calendar.MINUTE,minute);
                 calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                SimpleDateFormat format= new SimpleDateFormat("kk:mm ");
+                SimpleDateFormat format= new SimpleDateFormat("kk:mm");
                 tvH.setText(" "+format.format(calendar.getTime()));
             }
         },gio,phut,true);
@@ -123,15 +123,12 @@ public class schedule extends Fragment {
     public void setSchedule(){
         Clickbutton(txtdLedbd,txthLedbd,btnLedbd);
         Clickbutton(txtdLedkt,txthLedkt,btnLedkt);
-//        xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
 
         Clickbutton(txtdLocbd,txthLocbd,btnLocbd);
         Clickbutton(txtdLockt,txthLockt,btnLockt);
-//        xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
 
         Clickbutton(txtdOxibd,txthOxibd,btnOxibd);
         Clickbutton(txtdOxikt,txthOxikt,btnOxikt);
-//        xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
 
         Clickbutton(txtdAnchon,txthAnchon,btnAnchon);
     }
@@ -145,16 +142,12 @@ public class schedule extends Fragment {
                     xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
                     myRef.child("HoCa").child("Led").child("start").setValue(""+txtdLedbd.getText()+txthLedbd.getText());
                     myRef.child("HoCa").child("Led").child("stop").setValue(""+txtdLedkt.getText()+txthLedkt.getText());
-
                     myRef.child("HoCa").child("Oxi").child("start").setValue(""+txtdOxibd.getText()+txthOxibd.getText());
                     myRef.child("HoCa").child("Oxi").child("stop").setValue(""+txtdOxikt.getText()+txthOxikt.getText());
-
                     myRef.child("HoCa").child("Purifier").child("start").setValue(""+txtdLocbd.getText()+txthLocbd.getText());
                     myRef.child("HoCa").child("Purifier").child("stop").setValue(""+txtdLockt.getText()+txthLockt.getText());
-
                     myRef.child("HoCa").child("Feed").child("start").setValue(""+txtdAnchon.getText()+txthAnchon.getText());
-
-                    myRef.child("HoCa").child("schedule").setValue(true, new DatabaseReference.CompletionListener() {
+                    myRef.child("HoCa").child("Schedule").setValue(true, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                             if(databaseError!=null){
@@ -165,29 +158,35 @@ public class schedule extends Fragment {
                     });
                 }
                 else {
-                    myRef.child("HoCa").child("Led").child("start").setValue("");
-                    myRef.child("HoCa").child("Led").child("stop").setValue("");
-
-                    myRef.child("HoCa").child("Oxi").child("start").setValue("");
-                    myRef.child("HoCa").child("Oxi").child("stop").setValue("");
-
-                    myRef.child("HoCa").child("Purifier").child("start").setValue("");
-                    myRef.child("HoCa").child("Purifier").child("stop").setValue("");
-
-                    myRef.child("HoCa").child("Feed").child("start").setValue("");
-
-                    myRef.child("HoCa").child("schedule").setValue(false);
+                    clearSchedule();
+                    check();
                 }
             }
         });
     }
+    public void clearSchedule(){
+        myRef.child("HoCa").child("Led").child("start").setValue("");
+        myRef.child("HoCa").child("Led").child("stop").setValue("");
+        myRef.child("HoCa").child("Oxi").child("start").setValue("");
+        myRef.child("HoCa").child("Oxi").child("stop").setValue("");
+        myRef.child("HoCa").child("Purifier").child("start").setValue("");
+        myRef.child("HoCa").child("Purifier").child("stop").setValue("");
+        myRef.child("HoCa").child("Feed").child("start").setValue("");
+        myRef.child("HoCa").child("Schedule").setValue(false);
+    }
     public void check(){
-        myRef.child("HoCa").child("schedule").addValueEventListener(new ValueEventListener() {
+        myRef.child("HoCa").child("Schedule").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 boolean k= (boolean) dataSnapshot.getValue();
                 if(k) btnsave.setChecked(true);
-                else btnsave.setChecked(false);
+                else {
+                    btnsave.setChecked(false);
+                    xoaTV(txtdAnchon,txthAnchon,txtdLedbd,txthLedbd);
+                    xoaTV(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
+                    xoaTV(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
+                    xoaTV(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -242,5 +241,11 @@ public class schedule extends Fragment {
                 tvh2.setText("");
             }
         }
+    }
+    public void xoaTV(final TextView s1,final  TextView s2,final TextView s3,final  TextView s4){
+        s1.setText("");
+        s2.setText("");
+        s3.setText("");
+        s4.setText("");
     }
 }

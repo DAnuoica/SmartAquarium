@@ -11,6 +11,7 @@
         android:paddingBottom="?attr/actionBarSize">
 
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -24,7 +25,7 @@
                 <ImageView
                     android:id="@+id/img_led"
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="70dp"
                     android:layout_weight="1"
                     android:src="@drawable/led_on"></ImageView>
 
@@ -37,6 +38,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="150 lux"
+                    android:textColor="#000000"
                     android:textSize="30sp"></TextView>
             </LinearLayout>
 
@@ -48,7 +50,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="70dp"
                     android:layout_weight="2"
                     android:src="@drawable/temperature"></ImageView>
 
@@ -63,7 +65,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="60dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"
                     android:src="@drawable/food"></ImageView>
@@ -75,15 +77,23 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="Full"
+                    android:textColor="#000000"
                     android:textSize="30sp"></TextView>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Nhiệt độ hôm nay "
+                android:textColor="#000000"
+                android:textSize="20sp"></TextView>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/List"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" />
-
             <TextView
                 android:id="@+id/tvmore"
                 android:layout_width="wrap_content"
@@ -92,19 +102,14 @@
                 android:layout_marginTop="10dp"
                 android:autoLink="none"
                 android:text=">> xem chi tiet"
-                android:textColor="#3F51B5"
+                android:textColor="#000A96"
                 android:textSize="20sp"></TextView>
-
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/bar_chart"
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_margin="10dp"></com.github.mikephil.charting.charts.BarChart>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="Dự đoán nhiệt độ hồ cá"
                 android:textColor="#000000"
                 android:textSize="20sp"></TextView>
@@ -128,6 +133,7 @@
                         android:layout_height="50dp"
                         android:gravity="center"
                         android:text="mai "
+                        android:textColor="#000000"
                         android:textSize="20sp"></TextView>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -169,6 +175,7 @@
                         android:layout_height="50dp"
                         android:gravity="center"
                         android:text="mốt "
+                        android:textColor="#000000"
                         android:textSize="20sp"></TextView>
                     <LinearLayout
                         android:layout_width="match_parent"

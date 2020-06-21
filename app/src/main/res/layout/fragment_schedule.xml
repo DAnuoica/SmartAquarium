@@ -13,12 +13,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_margin="10dp">
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đèn Led"
-        android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Đèn Led"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
     <LinearLayout
         android:background="#3600BCD4"
         android:layout_width="match_parent"
@@ -84,12 +87,14 @@
             android:layout_weight="1"></TextView>
     </LinearLayout>
 
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Máy Oxi"
-        android:textSize="20sp"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Máy Oxi"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
     <LinearLayout
         android:background="#3600BCD4"
         android:layout_width="match_parent"
@@ -156,12 +161,14 @@
             android:layout_weight="1"></TextView>
     </LinearLayout>
 
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lọc nước"
-        android:textSize="20sp"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Lọc nước"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
     <LinearLayout
         android:background="#3600BCD4"
         android:layout_width="match_parent"
@@ -229,11 +236,13 @@
     </LinearLayout>
 
             <TextView
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="Cho ăn"
-                android:textSize="20sp"></TextView>
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
     <LinearLayout
         android:background="#3600BCD4"
         android:layout_width="match_parent"
@@ -267,13 +276,15 @@
             android:id="@+id/txthanchon">
         </TextView>
     </LinearLayout>
-        <TextView
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Hẹn giờ ">
-        </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Hẹn giờ "
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
             <ToggleButton
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/btnsave"
