@@ -137,25 +137,33 @@ public class schedule extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
-                    xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
-                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
-                    myRef.child("HoCa").child("Led").child("start").setValue(""+txtdLedbd.getText()+txthLedbd.getText());
-                    myRef.child("HoCa").child("Led").child("stop").setValue(""+txtdLedkt.getText()+txthLedkt.getText());
-                    myRef.child("HoCa").child("Oxi").child("start").setValue(""+txtdOxibd.getText()+txthOxibd.getText());
-                    myRef.child("HoCa").child("Oxi").child("stop").setValue(""+txtdOxikt.getText()+txthOxikt.getText());
-                    myRef.child("HoCa").child("Purifier").child("start").setValue(""+txtdLocbd.getText()+txthLocbd.getText());
-                    myRef.child("HoCa").child("Purifier").child("stop").setValue(""+txtdLockt.getText()+txthLockt.getText());
-                    myRef.child("HoCa").child("Feed").child("start").setValue(""+txtdAnchon.getText()+txthAnchon.getText());
-                    myRef.child("HoCa").child("Schedule").setValue(true, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                            if(databaseError!=null){
-                                Toast.makeText(getActivity(), "hẹn giờ thất bại " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                    if(xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt)||
+                    xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt)||
+                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt)) {
+//                    xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
+//                    xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
+//                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
+                        myRef.child("HoCa").child("Led").child("start").setValue("" + txtdLedbd.getText() + txthLedbd.getText());
+                        myRef.child("HoCa").child("Led").child("stop").setValue("" + txtdLedkt.getText() + txthLedkt.getText());
+                        myRef.child("HoCa").child("Oxi").child("start").setValue("" + txtdOxibd.getText() + txthOxibd.getText());
+                        myRef.child("HoCa").child("Oxi").child("stop").setValue("" + txtdOxikt.getText() + txthOxikt.getText());
+                        myRef.child("HoCa").child("Purifier").child("start").setValue("" + txtdLocbd.getText() + txthLocbd.getText());
+                        myRef.child("HoCa").child("Purifier").child("stop").setValue("" + txtdLockt.getText() + txthLockt.getText());
+                        myRef.child("HoCa").child("Feed").child("start").setValue("" + txtdAnchon.getText() + txthAnchon.getText());
+                        myRef.child("HoCa").child("Schedule").setValue(true, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                if (databaseError != null) {
+                                    Toast.makeText(getActivity(), "hẹn giờ thất bại ", Toast.LENGTH_LONG).show();
+                                }
+                                else Toast.makeText(getActivity(), "Đã hẹn giờ thành công ", Toast.LENGTH_LONG).show();
                             }
-                            else Toast.makeText(getActivity(), "Đã hẹn giờ thành công ", Toast.LENGTH_LONG).show();
-                        }
-                    });
+                        });
+                    }
+                    else {
+                        Toast.makeText(getActivity(), "hẹn giờ thất bại ", Toast.LENGTH_LONG).show();
+                        btnsave.setChecked(false);
+                    }
                 }
                 else {
                     clearSchedule();
@@ -215,7 +223,7 @@ public class schedule extends Fragment {
             }
         });
     }
-    public void xulysaisot(TextView tvd1,TextView tvh1,TextView tvd2,TextView tvh2) {
+    public boolean xulysaisot(TextView tvd1,TextView tvh1,TextView tvd2,TextView tvh2) {
         if(tvd1.length()!=0&&tvd2.length()!=0&&tvh1.length()!=0&&tvh2.length()!=0) {
             String S1 = "" + tvd1.getText() + tvh1.getText();
             String S2 = "" + tvd2.getText() + tvh2.getText();
@@ -239,8 +247,11 @@ public class schedule extends Fragment {
                 tvd2.setText("");
                 tvh1.setText("");
                 tvh2.setText("");
+                return false;
             }
+            else return true;
         }
+        return false;
     }
     public void xoaTV(final TextView s1,final  TextView s2,final TextView s3,final  TextView s4){
         s1.setText("");
