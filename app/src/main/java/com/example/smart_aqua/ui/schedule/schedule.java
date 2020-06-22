@@ -139,10 +139,8 @@ public class schedule extends Fragment {
                 if(isChecked){
                     if(xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt)||
                     xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt)||
-                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt)) {
-//                    xulysaisot(txtdLedbd,txthLedbd,txtdLedkt,txthLedkt);
-//                    xulysaisot(txtdLocbd,txthLocbd,txtdLockt,txthLockt);
-//                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt);
+                    xulysaisot(txtdOxibd,txthOxibd,txtdOxikt,txthOxikt)||
+                    xulysaisotAn(txtdAnchon,txthAnchon)) {
                         myRef.child("HoCa").child("Led").child("start").setValue("" + txtdLedbd.getText() + txthLedbd.getText());
                         myRef.child("HoCa").child("Led").child("stop").setValue("" + txtdLedkt.getText() + txthLedkt.getText());
                         myRef.child("HoCa").child("Oxi").child("start").setValue("" + txtdOxibd.getText() + txthOxibd.getText());
@@ -150,18 +148,9 @@ public class schedule extends Fragment {
                         myRef.child("HoCa").child("Purifier").child("start").setValue("" + txtdLocbd.getText() + txthLocbd.getText());
                         myRef.child("HoCa").child("Purifier").child("stop").setValue("" + txtdLockt.getText() + txthLockt.getText());
                         myRef.child("HoCa").child("Feed").child("start").setValue("" + txtdAnchon.getText() + txthAnchon.getText());
-                        myRef.child("HoCa").child("Schedule").setValue(true, new DatabaseReference.CompletionListener() {
-                            @Override
-                            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                                if (databaseError != null) {
-                                    Toast.makeText(getActivity(), "hẹn giờ thất bại ", Toast.LENGTH_LONG).show();
-                                }
-                                else Toast.makeText(getActivity(), "Đã hẹn giờ thành công ", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                        myRef.child("HoCa").child("Schedule").setValue(true);
                     }
                     else {
-                        Toast.makeText(getActivity(), "hẹn giờ thất bại ", Toast.LENGTH_LONG).show();
                         btnsave.setChecked(false);
                     }
                 }
@@ -247,6 +236,28 @@ public class schedule extends Fragment {
                 tvd2.setText("");
                 tvh1.setText("");
                 tvh2.setText("");
+                return false;
+            }
+            else return true;
+        }
+        return false;
+    }
+    public boolean xulysaisotAn(TextView tvd1,TextView tvh1) {
+        if(tvd1.length()!=0&&tvh1.length()!=0) {
+            String S1 = "" + tvd1.getText() + tvh1.getText();
+            Calendar ca1 = Calendar.getInstance();
+            Calendar ca2 = Calendar.getInstance();
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+            try {
+                ca1.setTime(format.parse(S1));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            int check = ca1.compareTo(ca2);
+            if (check < 0) {
+                Toast.makeText(getActivity(), "nhập ngày giờ không phù hợp, vui lòng nhâp lại ", Toast.LENGTH_LONG).show();
+                tvd1.setText("");
+                tvh1.setText("");
                 return false;
             }
             else return true;
