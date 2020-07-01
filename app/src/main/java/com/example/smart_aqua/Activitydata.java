@@ -36,9 +36,10 @@ public class Activitydata extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(Activitydata.this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         final ArrayList<data> arrayList = new ArrayList<>();
+        final ArrayList<data> arrayList1= new ArrayList<>();
         final dataAdapter2 dataAdapter2= new dataAdapter2(arrayList,this.getApplicationContext());
         recyclerView.setAdapter(dataAdapter2);
-        myRef.child("HoCa").child("logs").limitToLast(8*30).addChildEventListener(new ChildEventListener() {
+        myRef.child("HoCa").child("logs").limitToLast(6*30).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 logs logs= dataSnapshot.getValue(com.example.smart_aqua.logs.class);

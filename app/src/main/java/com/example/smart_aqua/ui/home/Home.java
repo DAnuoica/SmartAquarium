@@ -57,7 +57,6 @@ public class Home extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         SetID(view);
-//        fakedata();
         TinhTrang();
         forecast();
         initView(recyclerView);
@@ -195,7 +194,9 @@ public class Home extends Fragment {
         myRef.child("HoCa").child("forecast").child(S1).child(S2).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int k =Integer.parseInt(dataSnapshot.getValue().toString());
+        //        float t =Integer.parseInt(dataSnapshot.getValue().toString());
+                float t = Float.parseFloat(dataSnapshot.getValue().toString());
+                float k= (float) Math.ceil(t*10)/10;
                 if(k>=30) tv.setTextColor(Color.RED);
                 else if(k<30 && k>20) tv.setTextColor(Color.GREEN);
                 else tv.setTextColor(Color.BLUE);

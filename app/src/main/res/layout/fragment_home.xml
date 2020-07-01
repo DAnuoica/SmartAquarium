@@ -101,7 +101,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:autoLink="none"
-                android:text=">> xem chi tiet"
+                android:text=">> xem chi tiết "
                 android:textColor="#000A96"
                 android:textSize="20sp"></TextView>
 
@@ -124,7 +124,7 @@
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/list_generic"
-                    android:layout_margin="20dp"
+                    android:layout_margin="15dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -149,7 +149,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="min1"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="18sp"></TextView>
 
                         <TextView
                             android:id="@+id/tvmax1"
@@ -158,7 +158,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="max1"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="18sp"></TextView>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -166,7 +166,7 @@
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:background="@drawable/list_generic"
-                    android:layout_margin="20dp"
+                    android:layout_margin="15dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -190,7 +190,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="min2"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="18sp"></TextView>
 
                         <TextView
                             android:id="@+id/tvmax2"
@@ -199,7 +199,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="max2"
-                            android:textSize="20sp"></TextView>
+                            android:textSize="18sp"></TextView>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

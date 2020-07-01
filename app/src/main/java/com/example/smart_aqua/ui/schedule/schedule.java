@@ -218,6 +218,7 @@ public class schedule extends Fragment {
             String S2 = "" + tvd2.getText() + tvh2.getText();
             Calendar ca1 = Calendar.getInstance();
             Calendar ca2 = Calendar.getInstance();
+            Calendar Ca = Calendar.getInstance();
             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm");
             try {
                 ca1.setTime(format.parse(S1));
@@ -230,7 +231,8 @@ public class schedule extends Fragment {
                 e.printStackTrace();
             }
             int check = ca1.compareTo(ca2);
-            if (check >= 0) {
+            int check2 = ca1.compareTo(Ca);
+            if (check >= 0||check2 < 0) {
                 Toast.makeText(getActivity(), "nhập ngày giờ không phù hợp, vui lòng nhâp lại ", Toast.LENGTH_LONG).show();
                 tvd1.setText("");
                 tvd2.setText("");

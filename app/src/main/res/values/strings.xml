@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">smart_aqua</string>
+    <string name="app_name">Smart Aquarium</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_control">Control</string>
     <string name="title_information">Information</string>
-    <string name="title_schedule">schedule</string>I
+    <string name="title_schedule">Schedule</string>
 </resources>
